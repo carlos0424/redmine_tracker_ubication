@@ -1,5 +1,5 @@
 RedmineApp::Application.routes.draw do
-  resources :projects do
-    resources :tracker_ubication, only: [:index]
+  resources :issues do
+    resources :tracker_ubications, only: [:index]
   end
 end

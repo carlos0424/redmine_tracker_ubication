@@ -1,0 +1,19 @@
+<h3>Ubicaciones Recientes</h3>
+<div id="tracker-ubication-map" style="height: 400px;"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var map = L.map('tracker-ubication-map').setView([0, 0], 2);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  var locations = <%= raw @tracker_ubications.to_json %>;
+
+  locations.forEach(function (loc) {
+    var marker = L.marker([loc.latitude, loc.longitude]).addTo(map);
+    marker.bindPopup(loc.event + "<br>" + loc.created_at);
+  });
+});
+</script>
