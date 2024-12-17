@@ -1,0 +1,6 @@
+en:
+  tracker_ubication: "Tracker Ubication"
+  label_latitude: "Latitude"
+  label_longitude: "Longitude"
+  label_event_type: "Event Type"
+  label_notes: "Notes"

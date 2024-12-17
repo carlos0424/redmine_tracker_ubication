@@ -1,0 +1,26 @@
+<h2>Ubications for Project: <%= @project.name %></h2>
+
+<table class="list">
+  <thead>
+    <tr>
+      <th>Issue</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Event</th>
+      <th>Notes</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= link_to "##{location.issue.id}", issue_path(location.issue) if location.issue %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
+        <td><%= location.event_type %></td>
+        <td><%= location.notes %></td>
+        <td><%= location.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
