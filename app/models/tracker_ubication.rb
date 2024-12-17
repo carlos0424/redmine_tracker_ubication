@@ -5,7 +5,7 @@ class TrackerUbication < ActiveRecord::Base
   validates :latitude, :longitude, presence: true
 
   # Campos extra para identificar eventos
-  validates :event, presence: true
+  validates :notes, length: { maximum: 500 }, allow_blank: true
   validates :notes, allow_blank: true
 
   scope :by_issue, ->(issue_id) { where(issue_id: issue_id) }
